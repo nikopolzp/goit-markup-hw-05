@@ -74,8 +74,7 @@ button {
 
 .features .item:not(:last-child),
 .occupation .item:not(:last-child),
-.team .item:not(:last-child),
-.client .item:not(:last-child) {
+.team .item:not(:last-child) {
     margin-right: 30px;
 }
 
@@ -203,9 +202,10 @@ button {
     height: 600px;
     margin: 0 auto;
     background-color: var(--secondary-bg-color);
-    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../images/hero-img.jpg");
+    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../images/hero-img.jpg");
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
 }
 
 .hero-title {
@@ -376,33 +376,37 @@ button {
     text-align: center;
 }
 
-.socials-bg {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 44px;
-    height: 44px;
-    fill: var(--socials-bg);
-    border-radius: 50%;
-}
-
 .socials.list {
     padding-bottom: 30px;
     justify-content: center;
+    gap: 10px;
 }
 
-.socials-item:not(:first-child) {
-    margin-left: 10px;
+.socials-item {
+    width: 44px;
+    height: 44px;
 }
 
-.socials-bg:hover,
-.socials-bg:focus {
+.socials-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
 
+.socials-link:hover,
+.socials-link:focus {
     background-color: var(--accent-color)
 }
 
-.socials-bg:hover svg,
-.socials-bg:focus svg {
+.socials .icon {
+    fill: var(--socials-bg);
+}
+
+.socials-link:hover .icon,
+.socials-link:focus .icon {
     fill: var(--primary-color);
 }
 
@@ -421,15 +425,20 @@ button {
 
 .client-list {
     display: flex;
+    gap: 30px;
 }
 
 .client .item {
-    width: 170px;
+    width: calc((100% - 150px) / 6);
+    height: 90px;
 }
 
 .client .link {
-    display: block;
-    padding: 16px 32px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
     color: var(--socials-bg);
     border: 1px solid var(--socials-bg);
     border-radius: 4px;
@@ -504,13 +513,13 @@ button {
     padding-bottom: 0;
 }
 
-.footer .socials-bg {
+.footer .socials-link {
     fill: var(--primary-color);
     background-color: rgba(255, 255, 255, .1);
 }
 
-.footer .socials-bg:hover,
-.footer .socials-bg:focus {
+.footer .socials-link:hover,
+.footer .socials-link:focus {
     background-color: var(--accent-color);
 }
 
@@ -561,6 +570,10 @@ button {
 .examples .link:focus {
     display: block;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.examples .thumb {
+    overflow: hidden;
 }
 
 .examples .descr {
